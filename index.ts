@@ -5,7 +5,7 @@ import SyncWaterfallHook from './lib/SyncWaterfallHook'
 import SyncBounceHook from './lib/SyncBounceHook'
 
 import AsyncParallelHook from './lib/AsyncParallelHook'
-import AsyncParallelBailHook from './lib/AsyncSeriesBailHook'
+import AsyncParallelBailHook from './lib/AsyncParallelBailHook'
 
 import AsyncSeriesHook from './lib/AsyncSeriesHook'
 import AsyncSeriesBailHook from './lib/AsyncSeriesBailHook'

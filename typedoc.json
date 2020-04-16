@@ -1,0 +1,8 @@
+{
+  "mode": "file",
+  "out":"docs",
+  "stripInternal": true,
+  "inputFiles": [
+    "src/index.ts"
+  ]
+}

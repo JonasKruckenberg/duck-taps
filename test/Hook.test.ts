@@ -14,6 +14,15 @@ describe('Hook', () => {
   it('has property #taps', () => {
     expect(hook.taps).to.be.an('array')
   })
+  describe('#isUsed', () => {
+    it('is false when no taps are registered', () => {
+      expect(hook.isUsed).to.equal(false)
+    })
+    it('is true when taps are registered', () => {
+      hook.tap(() =>{})
+      expect(hook.isUsed).to.equal(true)
+    })
+  })
   describe('#tap()', () => {
     it('works with a function', () => {
       const fn = () => {}

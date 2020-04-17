@@ -7,7 +7,7 @@ describe('AsyncSeriesHook', () => {
   beforeEach(() => {
     hook = new AsyncSeriesHook<[]>()
   })
-  describe('#call()', () => {
+  describe('#promise()', () => {
     it('calls all taps in order', async () => {
       const calls:string[] = []
       hook.tap(async () => calls.push('A'))

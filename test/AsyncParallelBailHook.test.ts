@@ -7,20 +7,19 @@ describe('AsyncParallelBailHook', () => {
   beforeEach(() => {
     hook = new AsyncParallelBailHook<[]>()
   })
-  describe('#call()', () => {
-    it('calls all taps', () => {
+  describe('#promise()', () => {
+    it('calls all taps', async () => {
       const calls = new Set<string>()
       hook.tap(async () => { calls.add('A') })
       hook.tap(async () => { calls.add('B') })
       hook.tap(async () => { calls.add('C') })
-      hook.call()
+      await hook.promise()
       expect(calls.size).to.equal(3)
     })
     it('returnes the value of the first tap that returns', async () => {
-      const calls = new Set<string>()
-      hook.tap(async () => { calls.add('A') })
+      hook.tap(async () => {})
       hook.tap(async () => 'B')
-      hook.tap(async () => { calls.add('C') })
+      hook.tap(async () => {})
       expect(await hook.promise()).to.equal('B')
     })
     it('rejects when tap throws', () => {

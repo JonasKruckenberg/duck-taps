@@ -7,13 +7,13 @@ describe('AsyncParallelHook', () => {
   beforeEach(() => {
     hook = new AsyncParallelHook<[]>()
   })
-  describe('#call()', () => {
-    it('calls all taps', () => {
+  describe('#promise()', () => {
+    it('calls all taps', async () => {
       const calls = new Set<string>()
       hook.tap(async () => calls.add('A'))
       hook.tap(async () => calls.add('B'))
       hook.tap(async () => calls.add('C'))
-      hook.call()
+      await hook.promise()
       expect(calls.size).to.equal(3)
     })
     it('rejects when tap throws', () => {

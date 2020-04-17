@@ -7,7 +7,7 @@ describe('AsyncSeriesBailHook', () => {
   beforeEach(() => {
     hook = new AsyncSeriesBailHook<[]>()
   })
-  describe('#call()', () => {
+  describe('#promise()', () => {
     it('calls all taps in order', async () => {
       const calls:string[] = []
       hook.tap(() => { calls.push('A') })

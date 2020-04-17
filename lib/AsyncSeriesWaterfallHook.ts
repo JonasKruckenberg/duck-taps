@@ -7,7 +7,7 @@ export default class AsyncSeriesWaterfallHook<T extends any[]> extends Hook<T> {
     for ( let i = this.taps.length; i--;) {
       const res = await this.taps[i].fn(...args, ctx )
       if ( Array.isArray(res) ) args = merge(args, res) as T
-      else if ( res ) args[0] = res
+      else if ( res !== undefined ) args[0] = res
     }
     return args
   }

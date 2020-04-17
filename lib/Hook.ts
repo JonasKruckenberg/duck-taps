@@ -21,9 +21,11 @@ export abstract class Hook<T extends any[]> {
     if ( typeof arg === 'string' ) {
       config.name = arg
       config.fn = handler
-    } else if ( typeof arg === 'object' ) {
+    }
+    if ( typeof arg === 'object' ) {
       config = arg
-    } else if ( typeof arg === 'function' ) {
+    }
+    if ( typeof arg === 'function' ) {
       config.name = arg.name
       config.fn = arg
     }

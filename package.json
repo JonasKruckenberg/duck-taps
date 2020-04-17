@@ -45,5 +45,11 @@
     "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.8.3"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "keywords": [
+    "hooks",
+    "taps",
+    "tapable",
+    "plugins"
+  ]
 }

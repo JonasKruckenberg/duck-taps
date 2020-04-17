@@ -1,0 +1,23 @@
+name: Coverage
+
+on: [push,pull_request]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Changes
+        uses: actions/checkout@v2
+      - name: Setup Nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+      - name: Installing dependencies
+        run: yarn
+      - name: Generating coverage
+        run: yarn coverage > coverage.txt
+      - name: Upload Coverage
+        uses: actions/upload-artifact@v1
+        with:
+          name: Coverage Report
+          path: ./coverage.txt

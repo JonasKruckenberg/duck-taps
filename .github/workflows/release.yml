@@ -7,7 +7,7 @@ on:
       - next
 
 jobs:
-  publish-npm:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Changes

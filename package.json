@@ -15,7 +15,7 @@
     "watch": "rollup -cw",
     "test": "mocha",
     "test-live": "mocha --watch --watch-files src --reporter min",
-    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
+    "coverage": "nyc -r text yarn test",
     "docs": "typedoc --options ./typedoc.json",
     "commit": "git cz"
   },
@@ -32,6 +32,7 @@
     ]
   },
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "chai": "^4.2.0",

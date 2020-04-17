@@ -1,4 +1,4 @@
-# duck-taps
+# Duck-taps
 > 🦆 It's ducks, taps, ducks with taps. What more would you want?
 
 ![Unit Tests](https://github.com/JonasKruckenberg/duck-taps/workflows/Unit%20Tests/badge.svg)
@@ -151,3 +151,6 @@ They only differ in the way they handle the return values:
 The complete Api documenation can be found here: [API Docs](https://github.com/JonasKruckenberg/duck-taps/tree/master/docs)
 
 ## Contributing
+
+If you feel like there is a type of hook that would be nice to have, I'd welcome a pull request!
+You can also just open an issue if you want to suggest a feature or want to report a bug!

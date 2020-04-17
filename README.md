@@ -1,5 +1,5 @@
-# duck-taps :duck:
-> It's ducks, taps, ducks with taps. What more would you want?
+# duck-taps
+> It's ducks:duck:, taps:potable_water:, ducks with taps. What more would you want?
 
 ![Unit Tests](https://github.com/JonasKruckenberg/duck-taps/workflows/Unit%20Tests/badge.svg)
 ![Release](https://github.com/JonasKruckenberg/duck-taps/workflows/Release/badge.svg)
@@ -148,6 +148,6 @@ They only differ in the way they handle the return values:
   Because of the danger of the loop hook more types than the Bail types have not been implemented yet.
 
 ## API
-The complete Api documenation can be found here [API Docs](https://github.com/JonasKruckenberg/duck-taps/tree/master/docs)
+The complete Api documenation can be found here: [API Docs](https://github.com/JonasKruckenberg/duck-taps/tree/master/docs)
 
 ## Contributing

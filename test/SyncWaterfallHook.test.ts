@@ -44,6 +44,15 @@ describe('SyncWaterfallHook', () => {
       hook.tap((val1, val2) => [val1 + 'C1',undefined])
       expect(hook.call('I1','I2')).to.deep.equal(['I1A1C1','I2A2B2'])
     })
+    it('ignores taps with wrong phase', () => {
+      const calls:string[] = []
+      hook.tap(() => { calls.push('A') })
+      // @ts-ignore
+      hook.phase('weird',() => { calls.push('B') })
+      hook.tap(() => { calls.push('C') })
+      hook.call('I','I')
+      expect(calls).to.deep.equal(['A','C'])
+    })
     it('throws when tap throws', () => {
       hook.tap(() => { throw new Error('dummy') })
       expect(hook.call).to.throw

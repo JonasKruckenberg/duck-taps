@@ -24,6 +24,15 @@ describe('AsyncSeriesBailHook', () => {
       expect(await hook.promise()).to.equal('B')
       expect(calls).to.deep.equal(['A'])
     })
+    it('ignores taps with wrong phase', async () => {
+      const calls:string[] = []
+      hook.tap(() => { calls.push('A') })
+      // @ts-ignore
+      hook.phase(() => { calls.push('B') })
+      hook.tap(() => { calls.push('C') })
+      await hook.promise()
+      expect(calls).to.deep.equal(['A','C'])
+    })
     it('rejects when tap throws', () => {
       hook.tap(() => { throw new Error('dummy') })
       expect(hook.promise).to.throw

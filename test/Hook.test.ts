@@ -3,7 +3,11 @@ import { Hook } from '../lib/Hook'
 import 'mocha'
 
 class DummyHook<T extends any[]> extends Hook<T> {
+  phases = ['execute']
+}
 
+class PhasedHook<T extends any[]> extends Hook<T,'execute' | 'special'> {
+  phases = ['execute','special']
 }
 
 describe('Hook', () => {
@@ -29,18 +33,24 @@ describe('Hook', () => {
       hook.tap(fn)
       expect(hook.taps[0]).to.deep.equal({
         name:fn.name,
-        fn
+        phases: {
+          execute: fn
+        }
       })
     })
     it('works with an object', () => {
       const fn = () => {}
       hook.tap({
         name: 'test',
-        fn
+        phases: {
+          execute: fn
+        }
       })
       expect(hook.taps[0]).to.deep.equal({
         name:'test',
-        fn
+        phases: {
+          execute: fn
+        }
       })
     })
     it('works with a name and function', () => {
@@ -48,7 +58,9 @@ describe('Hook', () => {
       hook.tap('test',fn)
       expect(hook.taps[0]).to.deep.equal({
         name:'test',
-        fn
+        phases: {
+          execute: fn
+        }
       })
     })
     it('inserts the taps in reverse order', () => {
@@ -58,15 +70,65 @@ describe('Hook', () => {
       hook.tap('3',fn)
       expect(hook.taps[2]).to.deep.equal({
         name:'1',
-        fn
+        phases: {
+          execute: fn
+        }
       })
       expect(hook.taps[1]).to.deep.equal({
         name:'2',
-        fn
+        phases: {
+          execute: fn
+        }
       })
       expect(hook.taps[0]).to.deep.equal({
         name:'3',
-        fn
+        phases: {
+          execute: fn
+        }
+      })
+    })
+  })
+  describe('#phase()', () => {
+    it('works with a function', () => {
+      const fn = () => {}
+      hook.phase('execute',fn)
+      expect(hook.taps[0]).to.deep.equal({
+        name:fn.name,
+        phases: {
+          execute: fn
+        }
+      })
+    })
+    it('works with a name and function', () => {
+      const fn = () => {}
+      hook.phase('execute','test',fn)
+      expect(hook.taps[0]).to.deep.equal({
+        name:'test',
+        phases: {
+          execute: fn
+        }
+      })
+    })
+    it('works with special phase and a function', () => {
+      const hook = new PhasedHook()
+      const fn = () => {}
+      hook.phase('special',fn)
+      expect(hook.taps[0]).to.deep.equal({
+        name:fn.name,
+        phases: {
+          special: fn
+        }
+      })
+    })
+    it('works with sepcial phase, a name and function', () => {
+      const hook = new PhasedHook()
+      const fn = () => {}
+      hook.phase('special','test',fn)
+      expect(hook.taps[0]).to.deep.equal({
+        name:'test',
+        phases: {
+          special: fn
+        }
       })
     })
   })

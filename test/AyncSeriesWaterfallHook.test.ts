@@ -44,6 +44,15 @@ describe('AsyncSeriesWaterfallHook', () => {
       hook.tap((val1, val2) => [val1 + 'C1',undefined])
       expect(await hook.promise('I1','I2')).to.deep.equal(['I1A1C1','I2A2B2'])
     })
+    it('ignores taps with wrong phase', async () => {
+      const calls:string[] = []
+      hook.tap(() => { calls.push('A') })
+      // @ts-ignore
+      hook.phase('weird',() => { calls.push('B') })
+      hook.tap(() => { calls.push('C') })
+      await hook.promise('I','I')
+      expect(calls).to.deep.equal(['A','C'])
+    })
     it('rejects when tap throws', () => {
       hook.tap(() => { throw new Error('dummy') })
       expect(hook.promise).to.throw

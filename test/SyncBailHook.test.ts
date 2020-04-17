@@ -24,6 +24,15 @@ describe('SyncBailHook', () => {
       expect(hook.call()).to.equal('B')
       expect(calls).to.deep.equal(['A'])
     })
+    it('ignores taps with wrong phase', () => {
+      const calls:string[] = []
+      hook.tap(() => { calls.push('A') })
+      // @ts-ignore
+      hook.phase('weird',() => { calls.push('B') })
+      hook.tap(() => { calls.push('C') })
+      hook.call()
+      expect(calls).to.deep.equal(['A','C'])
+    })
     it('throws when tap throws', () => {
       hook.tap(() => { throw new Error('dummy') })
       expect(hook.call).to.throw

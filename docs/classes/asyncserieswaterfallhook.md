@@ -1,4 +1,4 @@
-[duck-taps](../README.md) › [Globals](../globals.md) › [AsyncSeriesWaterfallHook](asyncserieswaterfallhook.md)
+[duck-taps - v1.1.0](../README.md) › [AsyncSeriesWaterfallHook](asyncserieswaterfallhook.md)
 
 # Class: AsyncSeriesWaterfallHook <**T**>
 
@@ -39,7 +39,7 @@ When working with more than one argument, you have to return an array.
 
 *Inherited from [Hook](hook.md).[taps](hook.md#taps)*
 
-*Defined in [lib/Hook.ts:16](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/Hook.ts#L16)*
+*Defined in [lib/Hook.ts:16](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L16)*
 
 All the taps that are currently registered.
 
@@ -51,7 +51,7 @@ All the taps that are currently registered.
 
 *Inherited from [Hook](hook.md).[isUsed](hook.md#isused)*
 
-*Defined in [lib/Hook.ts:22](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/Hook.ts#L22)*
+*Defined in [lib/Hook.ts:22](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L22)*
 
 Wether or not the hook is used by anything.
 Returns true when anything has tapped into the hook.
@@ -64,7 +64,7 @@ Returns true when anything has tapped into the hook.
 
 ▸ **promise**(...`args`: T): *Promise‹T›*
 
-*Defined in [lib/AsyncSeriesWaterfallHook.ts:13](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/AsyncSeriesWaterfallHook.ts#L13)*
+*Defined in [lib/AsyncSeriesWaterfallHook.ts:13](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/AsyncSeriesWaterfallHook.ts#L13)*
 
 Call the hook with the given arguments, will resolve with the retun values of the last tap.
 
@@ -80,11 +80,11 @@ ___
 
 ###  tap
 
-▸ **tap**(`name`: string, `handler`: [Handler](../globals.md#handler)‹T›): *this*
+▸ **tap**(`name`: string, `handler`: [Handler](../README.md#handler)‹T›): *this*
 
 *Inherited from [Hook](hook.md).[tap](hook.md#tap)*
 
-*Defined in [lib/Hook.ts:28](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/Hook.ts#L28)*
+*Defined in [lib/Hook.ts:28](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L28)*
 
 Register a named tap, other taps can use this name to register before or after this hook.
 
@@ -93,15 +93,15 @@ Register a named tap, other taps can use this name to register before or after t
 Name | Type |
 ------ | ------ |
 `name` | string |
-`handler` | [Handler](../globals.md#handler)‹T› |
+`handler` | [Handler](../README.md#handler)‹T› |
 
 **Returns:** *this*
 
-▸ **tap**(`handler`: [Handler](../globals.md#handler)‹T›): *this*
+▸ **tap**(`handler`: [Handler](../README.md#handler)‹T›): *this*
 
 *Inherited from [Hook](hook.md).[tap](hook.md#tap)*
 
-*Defined in [lib/Hook.ts:32](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/Hook.ts#L32)*
+*Defined in [lib/Hook.ts:32](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L32)*
 
 Register an anonymous tap. The name of the tap will be the name of the function.
 
@@ -109,7 +109,7 @@ Register an anonymous tap. The name of the tap will be the name of the function.
 
 Name | Type |
 ------ | ------ |
-`handler` | [Handler](../globals.md#handler)‹T› |
+`handler` | [Handler](../README.md#handler)‹T› |
 
 **Returns:** *this*
 
@@ -117,7 +117,7 @@ Name | Type |
 
 *Inherited from [Hook](hook.md).[tap](hook.md#tap)*
 
-*Defined in [lib/Hook.ts:40](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/Hook.ts#L40)*
+*Defined in [lib/Hook.ts:40](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L40)*
 
 Register a tap via a config object in the following format:
 {

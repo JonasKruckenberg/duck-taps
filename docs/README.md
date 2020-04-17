@@ -1,22 +1,66 @@
-[duck-taps](README.md) › [Globals](globals.md)
+[duck-taps - v1.1.0](README.md)
 
-# duck-taps
+# duck-taps - v1.1.0
 
-# duck-taps :duck:
-> It's ducks, taps, ducks with taps. What more would you want?
+## Index
 
-![Unit Tests](https://github.com/JonasKruckenberg/duck-taps/workflows/Unit%20Tests/badge.svg)
-![Release](https://github.com/JonasKruckenberg/duck-taps/workflows/Release/badge.svg)
+### Classes
 
-This module provides a bunch of *Hooks* you can use to let other code *tap* into.
+* [AsyncParallelBailHook](classes/asyncparallelbailhook.md)
+* [AsyncParallelHook](classes/asyncparallelhook.md)
+* [AsyncSeriesBailHook](classes/asyncseriesbailhook.md)
+* [AsyncSeriesBounceHook](classes/asyncseriesbouncehook.md)
+* [AsyncSeriesHook](classes/asyncserieshook.md)
+* [AsyncSeriesWaterfallHook](classes/asyncserieswaterfallhook.md)
+* [Hook](classes/hook.md)
+* [SyncBailHook](classes/syncbailhook.md)
+* [SyncBounceHook](classes/syncbouncehook.md)
+* [SyncHook](classes/synchook.md)
+* [SyncWaterfallHook](classes/syncwaterfallhook.md)
 
-This should be a drop in replacement for [tapable](https://github.com/webpack/tapable) with a few differences:
-1. You get first class type support, since the module is written in typescript.
+### Interfaces
 
-2. It's **SMALL**. It's about 2kB and just 600Bytes when gzipped, and thats for the whole module, when you use tree-shaking you can get rid of all the Hooks you didn't use and further reduce the size!
+* [Tap](interfaces/tap.md)
 
-3. *duck-taps* was born because I needed more Hooks than what was avaiable with *tapable*, so naturally this module comes with all the Hooks you'd ever need. I'm also open to pull requests if you have a type of Hook that I didn't think of.
+### Type aliases
 
-4. It's extendable, meaning you can build you own Hook library on top of *duck-taps* if you want.
+* [Handler](README.md#handler)
 
-> :exclamation::alembic: THIS MODULE HAS NOT QUITE YET REACHED MATURITY, IM WORKING ON UPDATING THE README AND COMMENTS SOON
+### Functions
+
+* [merge](README.md#merge)
+
+## Type aliases
+
+###  Handler
+
+Ƭ **Handler**: *function*
+
+*Defined in [lib/Hook.ts:1](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L1)*
+
+#### Type declaration:
+
+▸ (...`args`: T): *any*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | T |
+
+## Functions
+
+###  merge
+
+▸ **merge**(`arr1`: any[], `arr2`: any[]): *any[]*
+
+*Defined in [lib/util.ts:1](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/util.ts#L1)*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`arr1` | any[] |
+`arr2` | any[] |
+
+**Returns:** *any[]*

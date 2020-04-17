@@ -1,4 +1,4 @@
-[duck-taps](../README.md) › [Globals](../globals.md) › [Tap](tap.md)
+[duck-taps - v1.1.0](../README.md) › [Tap](tap.md)
 
 # Interface: Tap
 
@@ -19,7 +19,7 @@
 
 • **fn**: *Function*
 
-*Defined in [lib/Hook.ts:5](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/Hook.ts#L5)*
+*Defined in [lib/Hook.ts:5](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L5)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **name**: *string*
 
-*Defined in [lib/Hook.ts:4](https://github.com/JonasKruckenberg/duck-taps/blob/a577125/lib/Hook.ts#L4)*
+*Defined in [lib/Hook.ts:4](https://github.com/JonasKruckenberg/duck-taps/blob/f992b34/lib/Hook.ts#L4)*

@@ -1,8 +1,8 @@
-[duck-taps - v1.1.0](../README.md) › [AsyncParallelBailHook](asyncparallelbailhook.md)
+[duck-taps - v1.1.0](../README.md) › [SyncLoopBailHook](syncloopbailhook.md)
 
-# Class: AsyncParallelBailHook <**T, P**>
+# Class: SyncLoopBailHook <**T, P**>
 
-The `AsyncParallelBailHook` executes all the taps in parallel, but resolves when one of the taps returns anything.
+The `SyncLoopBailHook` will invoke all the taps in  sequence looping forever until one of the taps returns anything.
 
 ## Type parameters
 
@@ -14,24 +14,24 @@ The `AsyncParallelBailHook` executes all the taps in parallel, but resolves when
 
 * [Hook](hook.md)‹T›
 
-  ↳ **AsyncParallelBailHook**
+  ↳ **SyncLoopBailHook**
 
 ## Index
 
 ### Properties
 
-* [phases](asyncparallelbailhook.md#phases)
-* [taps](asyncparallelbailhook.md#taps)
+* [phases](syncloopbailhook.md#phases)
+* [taps](syncloopbailhook.md#taps)
 
 ### Accessors
 
-* [isUsed](asyncparallelbailhook.md#isused)
+* [isUsed](syncloopbailhook.md#isused)
 
 ### Methods
 
-* [phase](asyncparallelbailhook.md#phase)
-* [promise](asyncparallelbailhook.md#promise)
-* [tap](asyncparallelbailhook.md#tap)
+* [call](syncloopbailhook.md#call)
+* [phase](syncloopbailhook.md#phase)
+* [tap](syncloopbailhook.md#tap)
 
 ## Properties
 
@@ -72,6 +72,24 @@ Returns true when anything has tapped into the hook.
 
 ## Methods
 
+###  call
+
+▸ **call**(...`args`: T): *any*
+
+*Defined in [lib/SyncLoopBailHook.ts:10](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/SyncLoopBailHook.ts#L10)*
+
+Call the hook, will return once one of the taps returns a value.
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`...args` | T |
+
+**Returns:** *any*
+
+___
+
 ###  phase
 
 ▸ **phase**(`phase`: P, `name`: string, `handler`: [Handler](../README.md#handler)‹T›): *this*
@@ -108,25 +126,6 @@ Name | Type |
 `handler` | [Handler](../README.md#handler)‹T› |
 
 **Returns:** *this*
-
-___
-
-###  promise
-
-▸ **promise**(...`args`: T): *Promise‹T›*
-
-*Defined in [lib/AsyncParallelBailHook.ts:11](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/AsyncParallelBailHook.ts#L11)*
-
-Call the hook with the given parameters, all taps will be invokes in parallel.
-When one tap returns anything the promise will be instantly resolved with the value.
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`...args` | T |
-
-**Returns:** *Promise‹T›*
 
 ___
 

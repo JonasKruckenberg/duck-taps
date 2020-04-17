@@ -1,8 +1,8 @@
-[duck-taps - v1.1.0](../README.md) › [AsyncParallelBailHook](asyncparallelbailhook.md)
+[duck-taps - v1.1.0](../README.md) › [AsyncLoopBailHook](asyncloopbailhook.md)
 
-# Class: AsyncParallelBailHook <**T, P**>
+# Class: AsyncLoopBailHook <**T, P**>
 
-The `AsyncParallelBailHook` executes all the taps in parallel, but resolves when one of the taps returns anything.
+The `SyncLoopBailHook` will invoke all the taps in  sequence looping forever until one of the taps returns anything.
 
 ## Type parameters
 
@@ -14,24 +14,24 @@ The `AsyncParallelBailHook` executes all the taps in parallel, but resolves when
 
 * [Hook](hook.md)‹T›
 
-  ↳ **AsyncParallelBailHook**
+  ↳ **AsyncLoopBailHook**
 
 ## Index
 
 ### Properties
 
-* [phases](asyncparallelbailhook.md#phases)
-* [taps](asyncparallelbailhook.md#taps)
+* [phases](asyncloopbailhook.md#phases)
+* [taps](asyncloopbailhook.md#taps)
 
 ### Accessors
 
-* [isUsed](asyncparallelbailhook.md#isused)
+* [isUsed](asyncloopbailhook.md#isused)
 
 ### Methods
 
-* [phase](asyncparallelbailhook.md#phase)
-* [promise](asyncparallelbailhook.md#promise)
-* [tap](asyncparallelbailhook.md#tap)
+* [phase](asyncloopbailhook.md#phase)
+* [promise](asyncloopbailhook.md#promise)
+* [tap](asyncloopbailhook.md#tap)
 
 ## Properties
 
@@ -113,12 +113,11 @@ ___
 
 ###  promise
 
-▸ **promise**(...`args`: T): *Promise‹T›*
+▸ **promise**(...`args`: T): *Promise‹any›*
 
-*Defined in [lib/AsyncParallelBailHook.ts:11](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/AsyncParallelBailHook.ts#L11)*
+*Defined in [lib/AsyncLoopBailHook.ts:9](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/AsyncLoopBailHook.ts#L9)*
 
-Call the hook with the given parameters, all taps will be invokes in parallel.
-When one tap returns anything the promise will be instantly resolved with the value.
+Call the hook, will resolve once one of the taps returns a value.
 
 **Parameters:**
 
@@ -126,7 +125,7 @@ Name | Type |
 ------ | ------ |
 `...args` | T |
 
-**Returns:** *Promise‹T›*
+**Returns:** *Promise‹any›*
 
 ___
 

@@ -13,7 +13,8 @@ export default class AsyncSeriesWaterfallHook<T extends any[]> extends Hook<T> {
   async promise( ...args: T ) {
     const ctx:any = {}
     for ( let i = this.taps.length; i--;) {
-      const res = await this.taps[i].fn(...args, ctx )
+      if ( !this.taps[i].phases.execute ) continue
+      const res = await this.taps[i].phases.execute(...args, ctx )
       if ( Array.isArray(res) ) args = merge(args, res) as T
       else if ( res !== undefined ) args[0] = res
     }

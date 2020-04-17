@@ -1,19 +1,27 @@
+import { assign } from './util'
+
 export type Handler<T extends any[]> = ( ...args: T ) => any
 
 export interface Tap {
   name:string,
-  fn:Function
+  // fn:Function,
+  phases:Dictionary<Handler<any>>
+}
+
+interface Dictionary<T> {
+    [Key: string]: T;
 }
 
 /**
 * The hook class provides common functionality an values for all the hooks.
 * You can extend it to add your own hooks.
 */
-export abstract class Hook<T extends any[]> {
+export abstract class Hook<T extends any[], P extends string = 'execute'> {
   /**
   * All the taps that are currently registered.
   */
   taps: Tap[] = []
+  readonly phases = ['execute']
 
   /**
   * Wether or not the hook is used by anything.
@@ -43,17 +51,45 @@ export abstract class Hook<T extends any[]> {
   *
   */
   tap( arg:string | Tap | Handler<T>, handler?:Handler<T> ):this {
-    let config:Partial<Tap> = {}
+    let config:Partial<Tap> = {
+      phases: {}
+    }
     if ( typeof arg === 'string' ) {
       config.name = arg
-      config.fn = handler
+      config.phases = assign(this.phases,handler)
     }
     if ( typeof arg === 'object' ) {
       config = arg
     }
     if ( typeof arg === 'function' ) {
       config.name = arg.name
-      config.fn = arg
+      config.phases = assign(this.phases,arg)
+    }
+    this._insert(config as Tap)
+    return this
+  }
+  /**
+  * Register a named tap for the given phase, other taps can use this name to register before or after this hook.
+  */
+  phase( phase: P, name:string, handler:Handler<T> ):this
+  /**
+  * Register an anonymous tap for the given tap. The name of the tap will be the name of the function.
+  */
+  phase( phase: P, handler:Handler<T> ):this
+  /**
+  * Works just like #tap() but registers the the only for the given phase.
+  */
+  phase( phase: P, arg:string | Tap | Handler<T>, handler?:Handler<T> ):this {
+    let config:Partial<Tap> = {
+      phases: {}
+    }
+    if ( typeof arg === 'string' ) {
+      config.name = arg
+      config.phases[phase] = handler
+    }
+    if ( typeof arg === 'function' ) {
+      config.name = arg.name
+      config.phases[phase] = arg
     }
     this._insert(config as Tap)
     return this

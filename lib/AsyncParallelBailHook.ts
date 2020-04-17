@@ -12,7 +12,8 @@ export default class AsyncParallelBailHook<T extends any[]> extends Hook<T> {
     const ctx:any = {}
     try {
       const promises = this.taps.map( async tap => {
-        const res = await tap.fn(...args, ctx )
+        if ( !tap.phases.execute ) return
+        const res = await tap.phases.execute(...args, ctx )
         if ( res !== undefined ) throw res
       })
       await Promise.all(promises)

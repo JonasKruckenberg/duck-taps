@@ -10,7 +10,8 @@ export default class SyncHook<T extends any[]> extends Hook<T> {
   call( ...args: T ) {
     const ctx:any = {}
     for ( let i = this.taps.length; i--;) {
-      this.taps[i].fn(...args, ctx )
+      if ( !this.taps[i].phases.execute ) continue
+      this.taps[i].phases.execute(...args, ctx )
     }
   }
 }

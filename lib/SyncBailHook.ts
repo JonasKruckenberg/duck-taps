@@ -11,7 +11,8 @@ export default class SyncBailHook<T extends any[]> extends Hook<T> {
   call( ...args: T ) {
     const ctx:any = {}
     for ( let i = this.taps.length; i--;) {
-      const res = this.taps[i].fn(...args, ctx )
+      if ( !this.taps[i].phases.execute ) continue
+      const res = this.taps[i].phases.execute(...args, ctx )
       if ( res !== undefined ) return res
     }
   }

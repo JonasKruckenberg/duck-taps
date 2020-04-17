@@ -10,7 +10,8 @@ export default class AsyncSeriesHook<T extends any[]> extends Hook<T> {
   async promise( ...args: T ) {
     const ctx:any = {}
     for ( let i = this.taps.length; i--;) {
-      await this.taps[i].fn(...args, ctx )
+      if ( !this.taps[i].phases.execute ) continue
+      await this.taps[i].phases.execute(...args, ctx )
     }
   }
 }

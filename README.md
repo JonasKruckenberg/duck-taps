@@ -1,4 +1,4 @@
-# duck-taps 🦆
+# duck-taps :duck:
 > It's ducks, taps, duck with taps. What more would you want?
 
 ![Unit Tests](https://github.com/JonasKruckenberg/duck-taps/workflows/Unit%20Tests/badge.svg)

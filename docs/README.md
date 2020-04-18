@@ -1,6 +1,6 @@
-[duck-taps - v1.1.0](README.md)
+[duck-taps](README.md)
 
-# duck-taps - v1.1.0
+# duck-taps
 
 ## Index
 
@@ -40,7 +40,7 @@
 
 Ƭ **Handler**: *function*
 
-*Defined in [lib/Hook.ts:3](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L3)*
+*Defined in [lib/Hook.ts:3](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L3)*
 
 #### Type declaration:
 
@@ -58,7 +58,7 @@ Name | Type |
 
 ▸ **assign**(`arr`: any[], `val`: any): *any*
 
-*Defined in [lib/util.ts:4](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/util.ts#L4)*
+*Defined in [lib/util.ts:4](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/util.ts#L4)*
 
 **Parameters:**
 
@@ -75,7 +75,7 @@ ___
 
 ▸ **merge**(`arr1`: any[], `arr2`: any[]): *any[]*
 
-*Defined in [lib/util.ts:1](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/util.ts#L1)*
+*Defined in [lib/util.ts:1](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/util.ts#L1)*
 
 **Parameters:**
 

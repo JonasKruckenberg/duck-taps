@@ -1,4 +1,4 @@
-[duck-taps - v1.1.0](../README.md) › [Dictionary](dictionary.md)
+[duck-taps](../README.md) › [Dictionary](dictionary.md)
 
 # Interface: Dictionary <**T**>
 

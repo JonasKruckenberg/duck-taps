@@ -5,6 +5,5 @@
   "inputFiles": [
     "src/index.ts"
   ],
-  "readme":"none",
-  "includeVersion": true
+  "readme":"none"
 }

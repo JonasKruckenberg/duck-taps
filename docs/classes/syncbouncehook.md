@@ -1,4 +1,4 @@
-[duck-taps - v1.1.0](../README.md) › [SyncBounceHook](syncbouncehook.md)
+[duck-taps](../README.md) › [SyncBounceHook](syncbouncehook.md)
 
 # Class: SyncBounceHook <**T**>
 
@@ -42,7 +42,7 @@ This Hook does not allow to bail, use the `AsyncSeriesBounceBailHook` for that.
 
 *Overrides [Hook](hook.md).[phases](hook.md#phases)*
 
-*Defined in [lib/SyncBounceHook.ts:10](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/SyncBounceHook.ts#L10)*
+*Defined in [lib/SyncBounceHook.ts:10](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/SyncBounceHook.ts#L10)*
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 *Inherited from [Hook](hook.md).[taps](hook.md#taps)*
 
-*Defined in [lib/Hook.ts:23](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L23)*
+*Defined in [lib/Hook.ts:23](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L23)*
 
 All the taps that are currently registered.
 
@@ -64,7 +64,7 @@ All the taps that are currently registered.
 
 *Inherited from [Hook](hook.md).[isUsed](hook.md#isused)*
 
-*Defined in [lib/Hook.ts:30](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L30)*
+*Defined in [lib/Hook.ts:30](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L30)*
 
 Wether or not the hook is used by anything.
 Returns true when anything has tapped into the hook.
@@ -77,7 +77,7 @@ Returns true when anything has tapped into the hook.
 
 ▸ **call**(...`args`: T): *T*
 
-*Defined in [lib/SyncBounceHook.ts:12](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/SyncBounceHook.ts#L12)*
+*Defined in [lib/SyncBounceHook.ts:12](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/SyncBounceHook.ts#L12)*
 
 **Parameters:**
 
@@ -95,7 +95,7 @@ ___
 
 *Inherited from [Hook](hook.md).[phase](hook.md#phase)*
 
-*Defined in [lib/Hook.ts:74](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L74)*
+*Defined in [lib/Hook.ts:74](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L74)*
 
 Register a named tap for the given phase, other taps can use this name to register before or after this hook.
 
@@ -113,7 +113,7 @@ Name | Type |
 
 *Inherited from [Hook](hook.md).[phase](hook.md#phase)*
 
-*Defined in [lib/Hook.ts:78](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L78)*
+*Defined in [lib/Hook.ts:78](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L78)*
 
 Register an anonymous tap for the given tap. The name of the tap will be the name of the function.
 
@@ -134,7 +134,7 @@ ___
 
 *Inherited from [Hook](hook.md).[tap](hook.md#tap)*
 
-*Defined in [lib/Hook.ts:36](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L36)*
+*Defined in [lib/Hook.ts:36](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L36)*
 
 Register a named tap, other taps can use this name to register before or after this hook.
 
@@ -151,7 +151,7 @@ Name | Type |
 
 *Inherited from [Hook](hook.md).[tap](hook.md#tap)*
 
-*Defined in [lib/Hook.ts:40](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L40)*
+*Defined in [lib/Hook.ts:40](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L40)*
 
 Register an anonymous tap. The name of the tap will be the name of the function.
 
@@ -167,7 +167,7 @@ Name | Type |
 
 *Inherited from [Hook](hook.md).[tap](hook.md#tap)*
 
-*Defined in [lib/Hook.ts:48](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L48)*
+*Defined in [lib/Hook.ts:48](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L48)*
 
 Register a tap via a config object in the following format:
 {

@@ -1,4 +1,4 @@
-[duck-taps - v1.1.0](../README.md) › [Tap](tap.md)
+[duck-taps](../README.md) › [Tap](tap.md)
 
 # Interface: Tap
 
@@ -19,7 +19,7 @@
 
 • **name**: *string*
 
-*Defined in [lib/Hook.ts:6](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L6)*
+*Defined in [lib/Hook.ts:6](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L6)*
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 • **phases**: *[Dictionary](dictionary.md)‹[Handler](../README.md#handler)‹any››*
 
-*Defined in [lib/Hook.ts:8](https://github.com/JonasKruckenberg/duck-taps/blob/bf28a82/lib/Hook.ts#L8)*
+*Defined in [lib/Hook.ts:8](https://github.com/JonasKruckenberg/duck-taps/blob/57c0009/lib/Hook.ts#L8)*

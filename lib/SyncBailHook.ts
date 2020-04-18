@@ -1,7 +1,7 @@
 import { Hook } from './Hook'
 
 /**
-* The `SyncBailHook` will invoke all taps in sequence, but stop once one of the taps retuns anything other tahn undefined.
+* The `SyncBailHook` will invoke all taps in sequence, but stop once one of the taps retuns anything other then undefined.
 * It will return that value.
 */
 export default class SyncBailHook<T extends any[]> extends Hook<T> {

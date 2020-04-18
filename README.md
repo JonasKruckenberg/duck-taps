@@ -64,6 +64,7 @@ hook.tap('Logger', arg => { // arg is now type string
 
 hook.call('Hello World') // you can only assign 1 argument now and it has to be a string
 ```
+See [Typescript](#typescript) for more awesome features with typescript
 
 ## Hooks
 
@@ -71,38 +72,42 @@ hook.call('Hello World') // you can only assign 1 argument now and it has to be 
 
 To register a tap ( plugin ) with the hook, you can use the `hook.tap()` method.
 There are 3 ways you can do this:
-  1. Anonymous Tap
+#### Anonymous Tap
+This is propably the most basic way to register a tap, you just provide the handler function to the `.tap()` method.
+```typescript
+  hook.tap(() => { /* functionality here */ })
+```
+This creates an anonymous tap, that has no name, so it cannot be addressed by name directly.
 
-    This is propably the most basic way to register a tap, you just provide the handler function to the `.tap()` method.
-    ```typescript
-      hook.tap(() => { // functionality here })
-    ```
-    This creates an anonymous tap, that has no name, so it cannot be addressed by name directly.
+#### Named Tap
+The second way is to provide a name and a handler function
+```typescript
+hook.tap('Name of tap', () => { /* functionality here */ })
+```
+This creates a named tap. You can later use this name to insert taps before or after the tap.
+This way of creating a tap recreates the *tapable* behavior.
 
-  2. Named Tap
+#### Config object
+This is the most customizable way to create a tap. You pass in a config object detailing what function you want to put and where in the tap chain you want to put it.
+```typescript
+hook.tap({
+  name: 'Name of tap',
+  fn: () => { /* functionality here */ }
+})
+```
 
-    The second way is to provide a name and a handler function
-    ```typescript
-      hook.tap('Name of tap', () => { // functionality here })
-    ```
-    This creates a named tap. You can later use this name to insert taps before or after the tap.
-    This way of creating a tap recreates the *tapable* behavior.
-  3. Config object
-
-    This is the most customizable way to create a tap. You pass in a config object detailing what function you want to put and where in the tap chain you want to put it.
-
-    ```typescript
-      hook.tap({
-        name: 'Name of tap',
-        fn: () => { // functionality here }
-      })
-    ```
 ### Hook phases
 
 The biggest under-the hood change from tapable is the fact that duck-taps uses *hook phases*, each hooks can define custom phases that plugins can tap into.
 The only hooks to take advantage of this currently are the bounce hooks, where the *in-order* part is one phase ( the `execution` phase ) and the *reverse-order* part is another ( the `post` phase ).
 
 You can either provide a config object that specifies the phases or use the `hook.phase()` method. Normal registration still works though, you function will just get added to all phases.
+
+```typescript
+  hook.phase('execute', () => {}) // Registered just for the `'execute'` phase.
+  hook.phase('weird', () => {}) // If you pass a phase in that doesnt exist, is will get ignored.
+```
+
 All phases the hook has are specified in `hook.phases`.
 
 There are some standard phases Hooks adopted:
@@ -114,11 +119,21 @@ The Bounce hooks you this phase when going up the tap chain again.
 ### Synchronous vs. Asynchronous
 
 The basic hooks are all synchronous. This is fine for small tap chains, but for larger ones or taps that are async functions or return promises this is not ideal, that's why there are also asynchronous hooks. Calling them returns a promise that resolves once the taps are done.
-
 Synchronous hooks can be identified by the prefix `Sync` before the class name,
 while asynchronous hooks can be identified by the `Async` prefix.
-
 Async hooks also support parallel execution, the `AsyncParallelHook` and `AsyncSeriesBailHook` execute all taps in parallel, while all hooks with the `AsyncSeries` prefix execute all asnyc taps in sequence.
+
+#### **Synchronous**
+Sync hooks can only be invoked with the method `#call()`, you have to provide all the arguments you want and it will call all of the taps. This is **blocking** so you would not want to have a large amount of computationally intensive taps on the hook.
+```typescript
+hook.call('arg1','arg2')
+```
+
+#### **Asynchronous**
+Async hooks can only be invoked with the method `#promise()` which calls all the taps with the provided arguments and resolves once it is done.
+```typescript
+hook.promise('arg1','arg2')
+```
 
 ### Execution types
 
@@ -167,11 +182,33 @@ They only differ in the way they handle the return values:
   Because of the danger of the loop hook more types than the Bail types have not been implemented yet.
 
 ## Typescript
+When using this module with typescript you'd want to specify what types your arguments can be and how many in total.
+This can be easily done since every class is a typescript generic:
+```typescript
+// you can provide the types of the arguments in the brackets.
+const hook = new AsyncSeriesHook<[string,number]>()
 
+hook.promise('string',1) // This works.
+hook.promise('string') // This doesn't since 2 arguments are required.
+hook.promise(1,'string') // This also doesn't work because the order is wrong
+hook.promise('string',1,whatever) // You can also not provide more arguments than specified.
+```
+When using the `#phase()` method you also have autocompletion for the possible phases:
+```typescript
+const hook1 = new SyncHook<[]>()
 
+hook1.phase('execute', () => {}) // This can only be execute since it is the only phase the SyncHook has.
+
+const hook2 = new SyncBounceHook<[]>()
+
+// Here the phase can be either `'execute'` or `'post'` because the SyncBounceHook has two phases.
+hook2.phase('execute', () => {})
+hook2.phase('post', () => {})
+
+```
 
 ## API
-The complete Api documenation can be found here: [API Docs](../tree/master/docs)
+The complete Api documenation can be found here: [API Docs](../../tree/master/docs)
 
 
 ## Contributing

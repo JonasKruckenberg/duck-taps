@@ -6,7 +6,24 @@
 
 This module provides a bunch of *Hooks* you can use to let other code *tap* into.
 
-## Install
+```javascript
+const {
+  SyncHook,
+  SyncBailHook,
+  SyncWaterfallHook,
+  SyncBounceHook,
+  SyncLoopBailHook,
+  AsyncParallelHook,
+  AsyncParallelBailHook,
+  AsyncSeriesHook,
+  AsyncSeriesBailHook,
+  AsyncSeriesWaterfallHook,
+  AsyncSeriesBounceHook,
+  AsyncLoopBailHook
+} = require('duck-taps')
+```
+
+## Installation
 
 Install it with yarn:
 ```bash
@@ -16,6 +33,8 @@ Or with npm:
 ```bash
 npm install duck-taps
 ```
+
+These are the hooks that are included:
 
 ## Usage
 
@@ -147,8 +166,13 @@ They only differ in the way they handle the return values:
 
   Because of the danger of the loop hook more types than the Bail types have not been implemented yet.
 
+## Typescript
+
+
+
 ## API
-The complete Api documenation can be found here: [API Docs](https://github.com/JonasKruckenberg/duck-taps/tree/master/docs)
+The complete Api documenation can be found here: [API Docs](../tree/master/docs)
+
 
 ## Contributing
 

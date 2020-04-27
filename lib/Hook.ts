@@ -4,7 +4,6 @@ export type Handler<T extends any[]> = ( ...args: T ) => any
 
 export interface Tap {
   name:string,
-  // fn:Function,
   phases:Dictionary<Handler<any>>
 }
 
@@ -94,7 +93,9 @@ export abstract class Hook<T extends any[], P extends string = 'execute'> {
     this._insert(config as Tap)
     return this
   }
-
+  /*
+  * @todo Implement insertion order
+  */
   private _insert( tap:Tap ) {
     this.taps.unshift(tap)
   }

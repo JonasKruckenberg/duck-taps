@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
-    "files"
+    "dist"
   ],
   "author": "Jonas Kruckenberg <jonas@kruckenbg.de>",
   "license": "MIT",

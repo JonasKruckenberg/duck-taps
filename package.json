@@ -1,6 +1,6 @@
 {
   "name": "duck-taps",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Modular and tree-shakeable Hooks your plugins can tap into 🦆",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
